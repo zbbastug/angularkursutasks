@@ -23,5 +23,17 @@ export class AppComponent {
   getTitle(){
     return this.title;
   }*/
+
+  /*username ="";*/
   
+  showSecret=false;
+  //log=[]; kullanımı vardı ancak burası any olmadan kabul edilmiyor. cünkü any kullanmadan once never olarak kabul ediliyor.
+  log = [] as any;
+
+  onToggleDetail(){
+    //eger bunu kaldırırsak secret password tuna görülmüyor.
+    this.showSecret=!this.showSecret;
+    //log dizisinin sayısını gösterir. 
+    this.log.push(this.log.length +1);
+  }
 }

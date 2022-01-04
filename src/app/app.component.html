@@ -8,5 +8,36 @@
   {{todoItem.action}}
 </p> -->
 
-<app-warning-alert></app-warning-alert>
+<!-- <app-warning-alert></app-warning-alert>
 <app-success-alert></app-success-alert>
+<div class="container">
+  <div class="row">
+    <label>Username</label>
+    <input type="text" class="form-control"[(ngModel)]="username">
+    <p>{{username}}</p>
+
+    <!-- Eğer username boşsa tıklanmaz -->
+    <!-- eğer resete tıklarsa temizler -->
+    <!-- <button class="btn btn-primary"
+    [disabled]="username === ''"
+    (click)="username =''">Reset User</button>
+  </div>
+</div> --> 
+
+<!-- ngIf ile tıklandıktan sonra p içeriğindeki yazıyı ortaya çıkardık. -->
+<!-- ngfor ile .ts dosyasında olusturalan diziyi listeledik. -->
+<!-- ngstyle ile 5ten büyük liste sayısı icin arka planı yesil yaptik. degilse transparan. -->
+<!-- ngclass ile de 5ten büyük olma durumu icin de beyaz yapıldı. -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-primary" (click) ="onToggleDetail()" >Display Details</button>
+        <p *ngIf="showSecret">Secret Password=tuna</p>
+        <div *ngFor="let logItem of log" 
+        [ngStyle]="{backgroundColor: logItem>= 5 ? 'palegreen': 'transparent'}"
+        [ngClass]="{'white-text': logItem>=5}"
+        >{{logItem}}</div>
+    </div>
+     
+  </div>
+</div>
